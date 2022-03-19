@@ -2,11 +2,7 @@ import "./App.css";
 import logo from "./logo.png";
 import {Routes, Route} from "react-router-dom";
 import {Navbar} from "./components/Navbar/Navbar";
-import {Cart} from "./pages/Cart/Cart";
-import {Homepage} from "./pages/Homepage/Homepage";
-import {Login} from "./pages/Login/Login";
-import {SignUp} from "./pages/SignUp/SignUp";
-import {Wishlist} from "./pages/Wishlist/WishList";
+import{Cart, Homepage, Login, SignUp, Wishlist} from "./pages/index";
 function App() {
   return (
     <div className="App">
