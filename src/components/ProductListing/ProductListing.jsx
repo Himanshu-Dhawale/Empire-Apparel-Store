@@ -82,7 +82,6 @@ const getFilterByCategory = filterByCategory(product, category);
 const getSortByPrice = sortByPrice(getFilterByCategory, sortBy);
 const getRatedCategory = sortByRating(getSortByPrice, rating)
 const products = filterByPriceRange(getRatedCategory, range);
-// console.log(products)
     return (
         <div>
 
