@@ -1,7 +1,10 @@
 import React from 'react'
-
+import { ShopNow } from '../../components/ShopNow/ShopNow'
 export const Homepage = () => {
   return (
-    <div>Homepage</div>
+    <div>
+      <ShopNow/>
+    </div>
+    
   )
 }

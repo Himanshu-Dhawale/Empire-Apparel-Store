@@ -1,0 +1,93 @@
+.nav-container{
+  z-index: 3;
+}
+.nav-title{
+  font-size: 1.3rem;
+}
+.nav-title a{
+  text-decoration: none;
+  color: black;
+}
+.nav-icon{
+  font-size: 1.3rem;
+}
+.search-div{
+border: 0.1px solid black;
+margin: 0 auto;
+}
+.searchbar{
+outline: none;
+border: none;
+padding: 0.7px;
+width: 15rem;   
+}
+
+.main-section{
+  display: flex;
+  margin-top: 2rem;
+}
+
+.filter-section{
+width: 15rem;
+height: 25rem;
+box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+}
+
+.filter-btn, .filter{
+  display: inline;
+}
+.filter{
+font-size: 1.2rem;
+font-weight: bold;
+}
+.filter-btn{
+  margin: 0 auto;
+  margin-top: 0.2rem;
+  margin-left: 8rem;
+  padding: 5px;
+  border: none;
+  font-size: larger;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+label{
+  display: block;
+}
+.steps-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.slider{
+  margin-left: 2rem;
+}
+
+.slider-values {
+  color: black;
+}
+.slider {
+  width: 10.3rem;
+  margin: 0 auto;
+}
+
+.slider-section-heading,.sort-by-heading ,.category-section-heading ,.rating-section-heading{
+margin-left: 1.8rem;
+padding: 0.2rem;
+font-size: 1rem;
+font-weight: bolder;
+text-transform: capitalize;
+}
+
+input{
+  margin-left: 1.3rem;
+}
+
+.product-section{
+display: flex;
+width: 50rem;
+justify-content: center;
+flex-wrap: wrap;
+gap: 2rem;
+}
