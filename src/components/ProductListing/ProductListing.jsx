@@ -34,7 +34,6 @@ export const ProductListing = () => {
     }
 
 const filterByCategory = (product, category) => {
-// console.log(mensclothing, womensclothing)
 const {   mensclothing,
     womensclothing} = category;
 let updateMensCategory = [], updatedWomensCategory = [];
