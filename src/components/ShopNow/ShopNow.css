@@ -1,0 +1,79 @@
+.landing-page-container{
+    background-image: url("https://images.pexels.com/photos/6311260/pexels-photo-6311260.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    width: 100%;
+    height: 65vh;
+    margin-top: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.landing-image{
+    width: 100%;
+    height:70;
+}
+
+.landing-text{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.landing-button{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: #fff;
+}
+
+.landing-button_link{
+ text-decoration: none;
+}
+
+link:visited{
+  text-decoration: none;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wrap {
+    flex-wrap: wrap;
+  }
+.deal-heading{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.deals-of-the-day {
+    min-width: 80%;
+    height: 13rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .deals-image {
+    height: 20rem;
+    width: 27rem;
+  }
+  
+  .deals-text {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+    color: var(--dark-green);
+  }
