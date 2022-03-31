@@ -1,6 +1,4 @@
 import { useContext, createContext, useReducer } from "react";
-
-// import { reducer } from "../../reducer/product-reducer";
 import { useState } from 'react';
 
 import { reducer } from "../reducer/product-reducer";
