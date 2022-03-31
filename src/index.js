@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { makeServer } from "./server";
 import {ProductProvider} from "./context/productcontext"
-// Call make Server
 makeServer();
 
 ReactDOM.render(
