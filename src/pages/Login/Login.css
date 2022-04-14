@@ -1,0 +1,60 @@
+.nav-container{
+    z-index: 3;
+}
+.nav-title{
+    font-size: 1.3rem;
+  }
+  .nav-title a{
+    text-decoration: none;
+    color: black;
+  }
+  .nav-icon{
+    font-size: 1.3rem;
+  }
+  .search-div{
+    border: 0.1px solid black;
+    margin: 0 auto;
+   }
+   .searchbar{
+   outline: none;
+   border: none;
+   padding: 0.7px;
+    width: 15rem;   
+   }
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.75rem 0;
+}
+ .description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+} 
+
+.auth-form{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input{
+    border-radius: 20px;
+}
+
+.auth-text{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+ }
+
+ .auth-text span{
+     margin: 0 0.5rem;
+ }
