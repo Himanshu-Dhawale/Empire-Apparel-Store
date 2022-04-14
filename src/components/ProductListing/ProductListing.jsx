@@ -1,11 +1,15 @@
 import React from 'react'
+import"./ProductListing.css"
 import { useEffect } from "react";
-
+import { useCart } from '../../context/cartcontext';
+import { useWish } from '../../context/wishlistcontext';
 import { useProduct } from '../../context/productcontext';
 import axios from 'axios';
 
 import "./ProductListing.css"
 export const ProductListing = () => {
+    const { addToCart } = useCart();
+    const { toggleWishItem } = useWish();
     const { product,
         setProduct, sortBy, category, rating, range } = useProduct();
 
@@ -103,7 +107,8 @@ const products = filterByPriceRange(getRatedCategory, range);
                                     <h6><strong>${item.price} </strong><strike>$200</strike></h6>
                                 </div>
                                 <div className="btn-container cta-btn">
-                                    <a className="btn btn-primary-solid">Add to Cart</a>
+                                    <a className="btn btn-primary-solid" onClick={() => addToCart(item)}>Add to Cart</a>
+                                    <a className="btn btn-primary-solid" onClick={() => toggleWishItem(item)}>Add to Wishlist</a>
                                 </div>
                             </div>
                         </div>
