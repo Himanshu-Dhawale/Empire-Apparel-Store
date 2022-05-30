@@ -1,43 +1,78 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useCart} from "../../context/cartcontext"
 import cartitems from '../../components/Cart/cartitems';
 import "./Cart.css"
 import { useAuth } from '../../context/auth-context';
+import axios from 'axios';
 export const Cart = () => {
-  // const { cartItems } = useCart();
+  const { cartItems, setCartItems } = useCart();
 const {auth} = useAuth();
-console.log(auth.user)
+// const [cart, setCart] = useState();
+useEffect(() => {
+  const data = async () => {
+    try {
+      const response = await axios({
+        method: "get",
+        url: "/api/user/cart",
+        headers: { authorization: auth.token },
+      });
+      console.log(response)
+     setCartItems(response.data.cart)
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+  data();
+}, []);
+
+ const removeFromCart = async(item) => {
+   try{
+      const response = await axios({
+        method: "delete",
+        url: `/api/user/cart/${item}`,
+        headers: { authorization: auth.token },
+      });
+      console.log(response.data.cart)
+      setCartItems(response.data.cart)
+
+   }catch(err){
+     console.log(err)
+   }
+ }
+
+
   return (
     <div>
+        <h1 class="description">Cart({cartItems.length})</h1>
       <div className=" card card_vertical"></div>
-      {/* {cartItems.map((item) => (
-          <CartItem key={item.id} cartitem={item} />
-        ))} */}
-        <h1 class="description">Cart(4)</h1>
-        <div class="main-content">
-            <div class="card-container">
-            <div class=" card card__vertical">
-                <div class="image-container-vert">
-                    <img class="img responsive-image"
-                        src="https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                        alt="hoodie"/>
-                    <i class='bx bxs-heart wishlist-icon-vert'></i>
+      {cartItems?.map((item) => (
+        // <img src={item.image} alt="" />
+        <div key={item._id}>
+                    <div className="product-section">
+                        <div className=" card card__vertical">
+                            <div className="image-container-vert">
+                                <img className="img responsive-image"
+                                    src={item.image}
+                                    alt="hoodie" />
+                                <i className='bx bxs-heart wishlist-icon-vert'></i>
 
-                </div>
-                <div class="text-btn-container">
-                    <div class="text-container vertical-text">
-                        <p class="quiet">Essential</p>
-                        <h4 class="card-title">Men's White T-Shirt</h4>
-                        <p>Men's Wear <span> | Sold by: H&M</span> </p>
-                        <h6><strong>$100 </strong><strike>$200</strike></h6>
+                            </div>
+                            <div className="text-btn-container">
+                                <div className="text-container vertical-text">
+                                    <p className="quiet">Essential</p>
+                                    <h4 className="card-title">Men's White T-Shirt</h4>
+                                    <p>Men's Wear <span> | Sold by: H and M</span> </p>
+                                    <h6><strong>${item.price} </strong><strike>$200</strike></h6>
+                                </div>
+                                <div className="btn-container cta-btn">
+                                    <a className="btn btn-primary-solid" onClick={() => removeFromCart(item._id)}>Remove to Cart</a>
+                                    <a className="btn btn-primary-solid" onClick={() => toggleWishItem(item)}>Add to Wishlist</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="btn-container cta-btn">
-                        <a class="btn btn-primary-solid">Add to Cart</a>
-                    </div>
                 </div>
-            </div>
-    </div>
-    </div>
+        ))}        
     </div>
   )
 }

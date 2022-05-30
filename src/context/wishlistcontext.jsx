@@ -9,14 +9,14 @@ const WishListProvider = ({ children }) => {
     if (doesExist(product.id)) {
       setWishlist((list) => list.filter((e) => e.id !== product.id));
     } else {
-      setWishlist((list) => [...list, product]);
+      setWishlist((list) => [...list, product]);  
     }
   };
 
   const doesExist = (id) => wishlist.some((e) => e.id === id);
 
   return (
-    <WishListContext.Provider value={{ wishlist, toggleWishItem, doesExist }}>
+    <WishListContext.Provider value={{ wishlist, toggleWishItem, doesExist, setWishlist }}>
       {children}
     </WishListContext.Provider>
   );

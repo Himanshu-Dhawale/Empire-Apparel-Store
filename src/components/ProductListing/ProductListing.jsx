@@ -4,12 +4,14 @@ import { useEffect } from "react";
 import { useCart } from '../../context/cartcontext';
 import { useWish } from '../../context/wishlistcontext';
 import { useProduct } from '../../context/productcontext';
+import { useAuth } from '../../context/auth-context';
 import axios from 'axios';
 
 import "./ProductListing.css"
 export const ProductListing = () => {
-    const { addToCart } = useCart();
-    const { toggleWishItem } = useWish();
+    const { cartItems, setCartItems } = useCart();
+    const {auth} = useAuth();
+    const { toggleWishItem, setWishlist } = useWish();
     const { product,
         setProduct, sortBy, category, rating, range } = useProduct();
 
@@ -85,6 +87,40 @@ const getFilterByCategory = filterByCategory(product, category);
 const getSortByPrice = sortByPrice(getFilterByCategory, sortBy);
 const getRatedCategory = sortByRating(getSortByPrice, rating)
 const products = filterByPriceRange(getRatedCategory, range);
+
+const addToCart = async (product, auth) => {
+    console.log(auth.token)
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/api/user/cart",
+        headers: { authorization: auth.token },
+        data: { product: product },
+      });
+      setCartItems(response.data.cart);
+    console.log(response)
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
+const addToWishlist = async (product, auth) => {
+    console.log(auth.token)
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/api/user/wishlist",
+        headers: { authorization: auth.token },
+        data: { product: product },
+      });
+    //   setWishlist(response.data.cart);
+      setWishlist(response.data.wishlist);
+    console.log(response)
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
     return (
         <div>
 
@@ -107,8 +143,9 @@ const products = filterByPriceRange(getRatedCategory, range);
                                     <h6><strong>${item.price} </strong><strike>$200</strike></h6>
                                 </div>
                                 <div className="btn-container cta-btn">
-                                    <a className="btn btn-primary-solid" onClick={() => addToCart(item)}>Add to Cart</a>
-                                    <a className="btn btn-primary-solid" onClick={() => toggleWishItem(item)}>Add to Wishlist</a>
+                                  {cartItems.some(product=> product._id ===item._id)?<button>Move to Cart</button>:<a className="btn btn-primary-solid" onClick={() => addToCart(item, auth)}>Add to Cart</a>}
+                                    {/* <a className="btn btn-primary-solid" onClick={() => addToCart(item, auth)}>Add to Cart</a> */}
+                                    <a className="btn btn-primary-solid" onClick={() => addToWishlist(item, auth)}>Add to Wishlist</a>
                                 </div>
                             </div>
                         </div>
