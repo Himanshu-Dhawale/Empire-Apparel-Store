@@ -21,7 +21,7 @@ useEffect(() => {
   return (
     <div>
     <nav className="nav-bar">
-    <div className="nav-title">Title</div>
+    <div className="nav-title">Empire Apparel Store</div>
     <button className="nav-icon"><Link to="/Login"><i className='bx bxs-user'></i></Link></button>
     <button className="nav-icon"><Link to="/Wishlist"><div class="badge_container icon_container">
 <i class='bx bxs-heart'></i>

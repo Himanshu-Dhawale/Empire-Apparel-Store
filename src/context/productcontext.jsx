@@ -27,6 +27,7 @@ const ProductProvider = ({ children }) => {
       category: {
         mensclothing: false,
         womensclothing: false,
+        childrenclothing: false,
       },
       rating: null,
     })

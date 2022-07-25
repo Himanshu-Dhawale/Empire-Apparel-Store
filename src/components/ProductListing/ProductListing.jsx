@@ -1,6 +1,7 @@
 import React from 'react'
 import"./ProductListing.css"
 import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/cartcontext';
 import { useWish } from '../../context/wishlistcontext';
 import { useProduct } from '../../context/productcontext';
@@ -11,6 +12,7 @@ import "./ProductListing.css"
 export const ProductListing = () => {
     const { cartItems, setCartItems } = useCart();
     const {auth} = useAuth();
+    const navigate = useNavigate()
     const { toggleWishItem, setWishlist } = useWish();
     const { product,
         setProduct, sortBy, category, rating, range } = useProduct();
@@ -90,6 +92,12 @@ const products = filterByPriceRange(getRatedCategory, range);
 
 const addToCart = async (product, auth) => {
     console.log(auth.token)
+    if(!auth.user){
+    navigate("/Login")
+
+    }
+else{
+
     try {
       const response = await axios({
         method: "post",
@@ -102,27 +110,34 @@ const addToCart = async (product, auth) => {
     } catch (err) {
       console.log(err.response);
     }
+  }
   };
 
 const addToWishlist = async (product, auth) => {
     console.log(auth.token)
-    try {
-      const response = await axios({
-        method: "post",
-        url: "/api/user/wishlist",
-        headers: { authorization: auth.token },
-        data: { product: product },
-      });
-    //   setWishlist(response.data.cart);
-      setWishlist(response.data.wishlist);
-    console.log(response)
-    } catch (err) {
-      console.log(err.response);
-    }
+    if(!auth.user){
+      navigate("/Login")
+  
+      }else{
+        try {
+          const response = await axios({
+            method: "post",
+            url: "/api/user/wishlist",
+            headers: { authorization: auth.token },
+            data: { product: product },
+          });
+        //   setWishlist(response.data.cart);
+          setWishlist(response.data.wishlist);
+        console.log(response)
+        } catch (err) {
+          console.log(err.response);
+        }
+      }
+    
   };
 
     return (
-        <div>
+        <div className='products-card'>
 
             {products && products.map((item) =>
                 <div key={item._id}>
@@ -138,12 +153,12 @@ const addToWishlist = async (product, auth) => {
                             <div className="text-btn-container">
                                 <div className="text-container vertical-text">
                                     <p className="quiet">Essential</p>
-                                    <h4 className="card-title">Men's White T-Shirt</h4>
-                                    <p>Men's Wear <span> | Sold by: H and M</span> </p>
+                                    <h4 className="card-title">{item.title}</h4>
+                                    <p><span> | Sold by: H and M</span> </p>
                                     <h6><strong>${item.price} </strong><strike>$200</strike></h6>
                                 </div>
                                 <div className="btn-container cta-btn">
-                                  {cartItems.some(product=> product._id ===item._id)?<button>Move to Cart</button>:<a className="btn btn-primary-solid" onClick={() => addToCart(item, auth)}>Add to Cart</a>}
+                                  {cartItems.some(product=> product._id ===item._id)?<a className="btn btn-primary-solid">Move to Cart</a>:<a className="btn btn-primary-solid" onClick={() => addToCart(item, auth)}>Add to Cart</a>}
                                     {/* <a className="btn btn-primary-solid" onClick={() => addToCart(item, auth)}>Add to Cart</a> */}
                                     <a className="btn btn-primary-solid" onClick={() => addToWishlist(item, auth)}>Add to Wishlist</a>
                                 </div>
