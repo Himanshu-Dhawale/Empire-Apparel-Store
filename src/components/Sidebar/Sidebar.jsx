@@ -9,7 +9,7 @@ export const Sidebar = () => {
 
 
   const { sortBy, productsDispatch, rating,range,clear, category: { mensclothing,
-    womensclothing } } = useProduct()
+    womensclothing, childrenclothing } } = useProduct()
   return (
     <main className="main-section">
       <aside className="filter-section">
