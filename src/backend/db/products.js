@@ -71,4 +71,12 @@ export const products = [
     categoryName: "womens",
     rating: 4.5
   }, 
+  {
+    _id: uuid(),
+    title: "Kurti",
+    price: "2000",
+    image:"https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-us.s3.amazonaws.com/6963100/96a02c56-db7d-4dd4-a1c3-9cd0850e0181/1634895606569-2b0fdb45614e4098-0cc224bed589c0823c37996da6544c82-1-a666d510-2892-4053-b228-5662bdbddec8.jpg",
+    categoryName: "womens",
+    rating: 3
+  }, 
 ];

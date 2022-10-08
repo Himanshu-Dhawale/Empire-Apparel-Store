@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Navbar.css"
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { useCart } from '../../context/cartcontext';
@@ -19,7 +20,6 @@ useEffect(() => {
 }, [wishlist]);
 
   return (
-    <div>
     <nav className="nav-bar">
     <div className="nav-title">Empire Apparel Store</div>
     <button className="nav-icon"><Link to="/Login"><i className='bx bxs-user'></i></Link></button>
@@ -32,6 +32,5 @@ useEffect(() => {
 <span class="badge icon-badge ">{cartCount}</span>
 </div></Link></button>
     </nav>
-    </div>
   )
 }

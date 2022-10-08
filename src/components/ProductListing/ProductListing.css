@@ -1,4 +1,4 @@
-.nav-container{
+/* .nav-container{
   z-index: 3;
 }
 .nav-title{
@@ -20,7 +20,7 @@ outline: none;
 border: none;
 padding: 0.7px;
 width: 15rem;   
-}
+} */
 
 .main-section{
   display: flex;
@@ -88,13 +88,18 @@ input{
   gap: 1rem;
   flex-wrap: wrap;
   /* border: 1px solid black; */
+  width: 50rem;
+align-items: center;
+justify-content: center;
+margin-left: 17rem;
+margin-top: 7rem;
 }
 
-.product-section{
+/* .product-section{
 display: flex;
-flex-direction: row;
 width: 50rem;
+align-items: center;
 justify-content: center;
 flex-wrap: wrap;
 gap: 2rem;
-}
+} */
