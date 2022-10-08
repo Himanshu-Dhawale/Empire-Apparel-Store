@@ -1,5 +1,5 @@
 import React from 'react'
-import"./ProductListing.css"
+import"./ProductListing.css";
 import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/cartcontext';
@@ -137,18 +137,16 @@ const addToWishlist = async (product, auth) => {
   };
 
     return (
+      <div>
         <div className='products-card'>
 
             {products && products.map((item) =>
                 <div key={item._id}>
-                    <div className="product-section">
                         <div className=" card card__vertical">
                             <div className="image-container-vert">
-                                <img className="img responsive-image"
+                                <img className="img responsive-image product-image"
                                     src={item.image}
                                     alt="hoodie" />
-                                <i className='bx bxs-heart wishlist-icon-vert'></i>
-
                             </div>
                             <div className="text-btn-container">
                                 <div className="text-container vertical-text">
@@ -164,9 +162,10 @@ const addToWishlist = async (product, auth) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
             )}
+        </div>
         </div>
 
     )

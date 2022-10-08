@@ -1,19 +1,45 @@
 .landing-page-container{
+  /* background-image: url("https://images.pexels.com/photos/6311260/pexels-photo-6311260.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"); */
+  background-image: url("https://cdn.shopify.com/s/files/1/0549/9981/0113/files/KRA-Website-Banners_1920x850px.jpg?v=1655179710&width=1200");
+    /* border: 1px solid red; */
+    padding: 100px 40px;
+    margin: auto;
+    margin-top: 2rem;
+    border-radius: 15px;
+    position: relative;
+    height: 600px;
+    line-height: 0.9; 
+    width: 93%;
+    background-repeat: no-repeat;
+}
+/* .landing-page-container{
     background-image: url("https://images.pexels.com/photos/6311260/pexels-photo-6311260.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-    width: 100%;
-    height: 65vh;
+    width: 80%;
+    height: 20vh;
+    margin: auto;
     margin-top: 2rem;
     background-size: cover;
     background-repeat: no-repeat;
-}
+    border-radius: 20%;
+} */
 .landing-image{
-    width: 100%;
-    height:70;
+  position: absolute;
+  top: 15%;
+  /* right:30%; */
+  width: 100%;
+  height: 800px;
+
 }
+/* .landing-image{
+    width: 100%;
+    height:20;
+    border-radius: 20%;
+
+} */
 
 .landing-text{
   position: absolute;
-  top: 60%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
@@ -59,21 +85,29 @@ link:visited{
     margin-bottom: 3rem;
     text-align: center;
 }
+
 .deals-of-the-day {
     min-width: 80%;
-    height: 13rem;
+    height: 10rem;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 5rem;
   }
   .deals-image {
     height: 20rem;
-    width: 27rem;
+    width: 20rem;
   }
   
+.deals-image:hover{
+  transform: scale(1.1);
+  transition: .3s ease-in-out;
+}
   .deals-text {
     margin: 0;
     text-align: center;
     font-size: 1.5rem;
     padding-bottom: 2rem;
     color: var(--dark-green);
+  }
+  link{
+    list-style: none;
   }
